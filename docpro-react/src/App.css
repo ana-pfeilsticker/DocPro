@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0
+}
+.nomes{
+  margin-left: 3%;
+  margin-top: 3%;
+  list-style-type: none;
+  
+}
