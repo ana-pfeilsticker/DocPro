@@ -36,7 +36,7 @@ function Clientes() {
         try {
             await axios.delete(`http://localhost:3030/dados/${id}`);
             const novaLista = dados.filter(item => item.id !== id);
-            setDados(novaLista);
+            clientesFiltrados = novaLista;
         } catch (error) {
             console.error('Erro ao excluir o dado', error);
         }
@@ -46,7 +46,9 @@ function Clientes() {
         setTermoPesquisa(event.target.value);
     };
 
-
+    
+    const clientesFiltrados = dados.filter(cliente => cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+    );
     const handleEditar = async (id, novosDados) => {
         try {
           // Faz uma requisição PUT para a rota de atualização no servidor Node.js
@@ -63,8 +65,6 @@ function Clientes() {
       };
       
 
-    const clientesFiltrados = dados.filter(cliente => cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
-    );
 
     return (
         <div>
@@ -86,6 +86,7 @@ function Clientes() {
                         key={item.id}
                         cliente={item}
                         onClick={handleNameClick}
+                        onDelete={handleExcluir}
                          />
                 ))}
             </ul>
@@ -95,7 +96,7 @@ function Clientes() {
         cliente={clienteSelecionado}
         onClose={handleCloseDetalhes}
         onEditar={handleEditar}
-        onDelete={handleExcluir}
+        
       />
       )}
         </div>
