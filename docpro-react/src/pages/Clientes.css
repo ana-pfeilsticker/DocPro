@@ -1,0 +1,22 @@
+/* Clientes.css */
+
+.barra-pesquisa {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espaçamento inferior para separar da lista de clientes */
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+  }
+  
+  .icone-lupa {
+    font-size: 20px;
+    margin-left: -30px; /* Ajuste para alinhar o ícone com o campo de pesquisa */
+    cursor: pointer;
+    color: #333;
+  }
+  

@@ -34,6 +34,87 @@ app.delete('/dados/:id', (req, res) => {
   sequelize.query(`DELETE FROM Clientes WHERE id = ${id}`, { type: Sequelize.QueryTypes.DELETE }) // recebe o id a partir do reacjs e deleta no db de acordo com o id
 });
 
+
+app.put('/dados/:id', (req, res) => {
+  const id = req.params.id;
+  const {
+    nome,
+    email,
+    nacionalidade,
+    estado_civil,
+    profissao,
+    nome_pai,
+    nome_mae,
+    cpf,
+    rg,
+    org_emissor,
+    nit,
+    ctps,
+    serie_ctps,
+    endereco,
+    cep,
+    uf,
+    celular,
+    data_nascimento
+  } = req.body;
+
+  // query no sql para atualizar os dados
+  sequelize.query(
+    'UPDATE Clientes SET ' +
+    'nome = ?, ' +
+    'email = ?, ' +
+    'nacionalidade = ?, ' +
+    'estado_civil = ?, ' +
+    'profissao = ?, ' +
+    'nome_pai = ?, ' +
+    'nome_mae = ?, ' +
+    'cpf = ?, ' +
+    'rg = ?, ' +
+    'org_emissor = ?, ' +
+    'nit = ?, ' +
+    'ctps = ?, ' +
+    'serie_ctps = ?, ' +
+    'endereco = ?, ' +
+    'cep = ?, ' +
+    'uf = ?, ' +
+    'celular = ?, ' +
+    'data_nascimento = ? ' +
+    'WHERE id = ?',
+    {
+      replacements: [
+        nome,
+        email,
+        nacionalidade,
+        estado_civil,
+        profissao,
+        nome_pai,
+        nome_mae,
+        cpf,
+        rg,
+        org_emissor,
+        nit,
+        ctps,
+        serie_ctps,
+        endereco,
+        cep,
+        uf,
+        celular,
+        data_nascimento,
+        id
+      ],
+      type: Sequelize.QueryTypes.UPDATE
+    }
+  ).then(result => {
+    // Retorna uma resposta indicando sucesso
+    res.json({ success: true, message: 'Dados atualizados com sucesso.' });
+  }).catch(error => {
+    // Se ocorrer um erro, retorna uma resposta indicando falha
+    console.error('Erro ao atualizar dados:', error);
+    res.status(500).json({ success: false, message: 'Erro ao atualizar dados.' });
+  });
+});
+
+
 app.listen(3030, () => {
     console.log("Local Server Iniciado")
 })
