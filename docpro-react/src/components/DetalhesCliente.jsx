@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-function DetalhesCliente({ cliente, onClose, onEditar, onDelete }) {
+function DetalhesCliente({ cliente, onClose, onEditar }) {
     const [edicao, setEdicao] = useState(false);
     const [novoNome, setNovoNome] = useState(cliente.nome);
     const [novoEmail, setNovoEmail] = useState(cliente.email);
@@ -216,7 +216,6 @@ function DetalhesCliente({ cliente, onClose, onEditar, onDelete }) {
 
                 <button onClick={handleEditarClick}>Editar</button>
                 <button onClick={onClose}>Fechar</button>
-                <FontAwesomeIcon icon={faTrash} onClick={() => onDelete(cliente.id)}/>
               </>
             )}
           </div>

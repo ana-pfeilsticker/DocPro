@@ -11,6 +11,7 @@ function Clientes() {
     const [clienteSelecionado, setClienteSelecionado] = useState(null);
     const [termoPesquisa, setTermoPesquisa] = useState('');
 
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,6 +25,9 @@ function Clientes() {
         fetchData();
     }, []);
 
+
+    
+
     const handleNameClick = (cliente) => {
         setClienteSelecionado(cliente);
     };
@@ -33,22 +37,33 @@ function Clientes() {
     };
 
     const handleExcluir = async (id) => {
+        setDados((dados) => dados.filter(item => item.id !== id));
+        
         try {
+
             await axios.delete(`http://localhost:3030/dados/${id}`);
-            const novaLista = dados.filter(item => item.id !== id);
-            clientesFiltrados = novaLista;
+  
         } catch (error) {
             console.error('Erro ao excluir o dado', error);
         }
+        
+
     };
 
     const handlePesquisa = (event) => {
         setTermoPesquisa(event.target.value);
     };
 
-    
-    const clientesFiltrados = dados.filter(cliente => cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+    const clientesPesquisados = dados.filter(cliente => cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
     );
+
+
+
+    
+
+
+
+
     const handleEditar = async (id, novosDados) => {
         try {
           // Faz uma requisição PUT para a rota de atualização no servidor Node.js
@@ -66,41 +81,42 @@ function Clientes() {
       
 
 
-    return (
-        <div>
-            <h1>Clientes</h1>
+      return (
+  <div className="full-screen-container">
+    <h1>Clientes</h1>
 
+    <div className="search-bar">
+      <input
+        type="text"
+        placeholder="Pesquisar por nome"
+        value={termoPesquisa}
+        onChange={handlePesquisa}
+      />
+      <span className="search-icon">&#128269;</span>
+    </div>
 
-            <div className="barra-pesquisa">
-                <input
-                    type="text"
-                    placeholder="Pesquisar por nome"
-                    value={termoPesquisa}
-                    onChange={handlePesquisa} />
-                <span className="icone-lupa">&#128269;</span>
-            </div>
+    <ul className="client-list">
+      {clientesPesquisados.map((item) => (
+        <CardCliente
+          key={item.id}
+          cliente={item}
+          onClick={handleNameClick}
+          onDelete={handleExcluir}
+        />
+      ))}
+    </ul>
 
-            <ul>
-                {clientesFiltrados.map((item) => (
-                    <CardCliente
-                        key={item.id}
-                        cliente={item}
-                        onClick={handleNameClick}
-                        onDelete={handleExcluir}
-                         />
-                ))}
-            </ul>
-
-            {clienteSelecionado && (
+    {clienteSelecionado && (
       <DetalhesCliente
         cliente={clienteSelecionado}
         onClose={handleCloseDetalhes}
         onEditar={handleEditar}
-        
       />
-      )}
-        </div>
-    );
+    )}
+  </div>
+);
+
+      
 }
 
 export default Clientes;
