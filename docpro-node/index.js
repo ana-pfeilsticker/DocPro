@@ -6,6 +6,7 @@ const app = new express()
 app.use(cors())
 app.use(express.json())
 
+
 //use npm run dev
 
 const sequelize = new Sequelize({ // define o login no db
@@ -28,6 +29,37 @@ app.get('/dados', (req, res) => {
     res.json(result)
   })
 });
+
+
+app.get('/documentos', (req, res) => {
+  sequelize.query('SELECT * FROM Documentos', {type: Sequelize.QueryTypes.SELECT })   //recebe os dados do dw
+  .then(result => {
+    res.json(result)
+  })
+});
+
+
+
+//essa função post insere novos dados na tabela de Documentos, cadastro de documentos
+app.post('/documentos', (req, res) => {
+  const { nome, tags } = req.body;
+
+  sequelize.query(
+    'INSERT INTO Documentos (nome, tags) VALUES (?, ?)',                          
+    {
+      replacements: [nome, tags],
+      type: Sequelize.QueryTypes.INSERT,
+    }
+  )
+    .then(() => {
+      res.json({ success: true, message: 'Documento cadastrado com sucesso.' });
+    })
+    .catch((error) => {
+      console.error('Erro ao cadastrar documento:', error);
+      res.status(500).json({ success: false, message: 'Erro ao cadastrar documento.' });
+    });
+});
+
 
 app.delete('/dados/:id', (req, res) => {
   const id = req.params.id;
