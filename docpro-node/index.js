@@ -66,6 +66,41 @@ app.delete('/dados/:id', (req, res) => {
   sequelize.query(`DELETE FROM Clientes WHERE id = ${id}`, { type: Sequelize.QueryTypes.DELETE }) // recebe o id a partir do reacjs e deleta no db de acordo com o id
 });
 
+app.delete('/documentos/:id', (req, res) => {
+  const id = req.params.id;
+  sequelize.query(`DELETE FROM Documentos WHERE id = ${id}`, { type: Sequelize.QueryTypes.DELETE }) // recebe o id a partir do reacjs e deleta no db de acordo com o id
+});
+
+app.put('/documentos/:id', (req, res) => {
+  const id = req.params.id;
+  const {
+    nome,
+    tags,
+  } = req.body;
+
+  // query no sql para atualizar os dados
+  sequelize.query(
+    'UPDATE Documentos SET ' +
+    'nome = ?, ' +
+    'tags = ? ' +
+    'WHERE id = ?',
+    {
+      replacements: [
+        nome,
+        tags,
+        id
+      ],
+      type: Sequelize.QueryTypes.UPDATE
+    }
+  ).then(result => {
+    // Retorna uma resposta indicando sucesso
+    res.json({ success: true, message: 'Dados atualizados com sucesso.' });
+  }).catch(error => {
+    // Se ocorrer um erro, retorna uma resposta indicando falha
+    console.error('Erro ao atualizar dados:', error);
+    res.status(500).json({ success: false, message: 'Erro ao atualizar dados.' });
+  });
+});
 
 app.put('/dados/:id', (req, res) => {
   const id = req.params.id;

@@ -58,12 +58,6 @@ function Clientes() {
     );
 
 
-
-    
-
-
-
-
     const handleEditar = async (id, novosDados) => {
         try {
           // Faz uma requisição PUT para a rota de atualização no servidor Node.js

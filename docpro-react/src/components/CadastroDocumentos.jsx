@@ -22,8 +22,6 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
         nome,
         tags,
       });
-
-      console.log(response.data);
       onCadastroSucesso();
     } catch (error) {
       console.error('Erro ao cadastrar documento:', error);
