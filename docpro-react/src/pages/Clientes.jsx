@@ -4,12 +4,15 @@ import axios from 'axios';
 import CardCliente from '../components/CardCliente';
 import DetalhesCliente from '../components/DetalhesCliente';
 import './Clientes.css';
+import Preenchimento from '../components/Preenchimento';
 
 
 function Clientes() {
     const [dados, setDados] = useState([]);
     const [clienteSelecionado, setClienteSelecionado] = useState(null);
     const [termoPesquisa, setTermoPesquisa] = useState('');
+    const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const [clienteFormulario, setClienteFormulario] = useState(null);
 
 
     useEffect(() => {
@@ -26,7 +29,16 @@ function Clientes() {
     }, []);
 
 
-    
+    const handleGerarDocumento = () => {
+      setClienteFormulario(clienteSelecionado);
+      setMostrarFormulario(true);
+      setClienteSelecionado(null);
+    }
+
+    const handleCloseFormulario = () => {
+      setMostrarFormulario(false);
+      setClienteFormulario(null);
+    };
 
     const handleNameClick = (cliente) => {
         setClienteSelecionado(cliente);
@@ -105,8 +117,19 @@ function Clientes() {
         cliente={clienteSelecionado}
         onClose={handleCloseDetalhes}
         onEditar={handleEditar}
+        onGerar={handleGerarDocumento}
       />
+
     )}
+
+
+        
+    {mostrarFormulario && (
+            <Preenchimento
+              clienteFormulario={clienteFormulario}
+              onClose={handleCloseFormulario}
+            />
+          )}
   </div>
 );
 
