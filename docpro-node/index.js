@@ -2,10 +2,14 @@ const { Sequelize } = require('sequelize')
 const express = require('express')
 const cors = require('cors')
 const multer = require('multer')
+const path = require('path');
+const fs = require('fs').promises;
 
+const preencherDocumento = require('./preenchimento'); 
 
 
 const upload = multer({ dest: 'uploads/' });
+
 
 const app = new express()
 app.use(cors())
@@ -30,19 +34,35 @@ sequelize.authenticate().then(function(){ // faz a verificação do login no db
 
 //api preenchimento automatico
 
-app.post('/gerarDocumento', upload.single('documento'), (req, res) => {
-  
-  const cliente = JSON.parse(req.body.cliente);
-  const tipoDocumento = req.body.tipoDocumento;
-  const documentoUpload = req.file;
+app.post('/gerarDocumento', upload.single('documento'), async (req, res) => {
+  try {
+    const cliente = JSON.parse(req.body.cliente);
+    const tipoDocumento = req.body.tipoDocumento;
+    const documentoUpload = req.file;
 
-  const resultado = cliente;
+    // Preenche o documento usando a função preencherDocumento
+    const caminhoModeloDocxTemporario = path.join(__dirname, 'uploads', documentoUpload.filename);
+    const documentoPreenchido = await preencherDocumento(cliente, caminhoModeloDocxTemporario);
+    fs.unlink(caminhoModeloDocxTemporario, (err) => {
+      if (err) {
+        console.error('Erro ao excluir o arquivo:', err);
+      } else {
+        console.log('Arquivo excluído com sucesso!');
+      }
+    });
 
-  // envie uma resposta ao cliente
-  res.json({ resultado });
+    // Configura os cabeçalhos da resposta
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+    res.setHeader('Content-Disposition', `attachment; filename=${tipoDocumento.nomeDoArquivo}.docx`);
+
+    // Envia o documento preenchido como resposta
+    res.send(documentoPreenchido);
+
+  } catch (erro) {
+    console.error('Erro ao gerar o documento:', erro);
+    res.status(500).json({ erro: 'Erro ao gerar o documento.' });
+  }
 });
-
-
 
 
 app.get('/dados', (req, res) => {

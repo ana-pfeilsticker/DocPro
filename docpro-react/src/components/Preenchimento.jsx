@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
   const [tiposDocumentos, setTiposDocumentos] = useState([]);
-  const [tipoDocumentoSelecionado, setTipoDocumentoSelecionado] = useState({});
+  const [tipoDocumentoSelecionado, setTipoDocumentoSelecionado] = useState('');
   const [documentoParaUpload, setDocumentoParaUpload] = useState(null);
 
   useEffect(() => {
@@ -66,12 +66,18 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
       formData.append('documento', documentoParaUpload);
 
       // Envie a solicitação para o servidor
-      const responseDocumento = await axios.post('http://localhost:3030/gerarDocumento', formData);
+      const response = await axios.post('http://localhost:3030/gerarDocumento', formData, { responseType: 'arraybuffer' });
 
-      // Lide com a resposta do servidor conforme necessário
-      console.log(responseDocumento.data);
-
-      // Feche o formulário após gerar o documento
+      // Cria um Blob a partir dos dados recebidos
+      const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+  
+      // Cria um link simulado para download
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'documento_preenchido.docx';
+      
+      // Simula um clique no link para iniciar o download
+      link.click();
       onClose();
     } catch (error) {
       console.error('Erro ao gerar o documento', error);
