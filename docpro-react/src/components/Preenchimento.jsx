@@ -36,7 +36,16 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
       const tagsDocumento = tipoDocumentoSelecionado.split(' ');
       const colunasClientes = Object.keys(clienteFormulario);
 
-      const tagsAusentes = tagsDocumento.filter(tag => !colunasClientes.includes(tag));
+      const clienteFiltrado = tagsDocumento.reduce((acc, tag) => {
+        if (colunasClientes.includes(tag)) {
+          acc[tag] = clienteFormulario[tag];
+        }
+        return acc;
+      }, {});
+
+      const colunasClientesFiltrados = Object.keys(clienteFiltrado)
+
+      const tagsAusentes = tagsDocumento.filter(tag => !colunasClientesFiltrados.includes(tag));
 
       if (tagsAusentes.length > 0) {
         const informacoesAdicionais = {};
@@ -46,12 +55,13 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
         }
   
         // Adicione as informações adicionais ao clienteFormulario
-        Object.assign(clienteFormulario, informacoesAdicionais);
+        Object.assign(clienteFiltrado, informacoesAdicionais);
       }
 
 
+
       const formData = new FormData();
-      formData.append('cliente', JSON.stringify(clienteFormulario));
+      formData.append('cliente', JSON.stringify(clienteFiltrado));
       formData.append('tipoDocumento', tipoDocumentoSelecionado);
       formData.append('documento', documentoParaUpload);
 
