@@ -1,6 +1,11 @@
 const { Sequelize } = require('sequelize')
 const express = require('express')
 const cors = require('cors')
+const multer = require('multer')
+
+
+
+const upload = multer({ dest: 'uploads/' });
 
 const app = new express()
 app.use(cors())
@@ -22,6 +27,23 @@ sequelize.authenticate().then(function(){ // faz a verificação do login no db
 }).catch(function(erro){
     console.log(erro)
 })
+
+//api preenchimento automatico
+
+app.post('/gerarDocumento', upload.single('documento'), (req, res) => {
+  
+  const cliente = JSON.parse(req.body.cliente);
+  const tipoDocumento = req.body.tipoDocumento;
+  const documentoUpload = req.file;
+
+  const resultado = cliente;
+
+  // envie uma resposta ao cliente
+  res.json({ resultado });
+});
+
+
+
 
 app.get('/dados', (req, res) => {
   sequelize.query('SELECT * FROM Clientes', { type: Sequelize.QueryTypes.SELECT }) // recebe os dados do db

@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
   const [tiposDocumentos, setTiposDocumentos] = useState([]);
-  const [tipoDocumentoSelecionado, setTipoDocumentoSelecionado] = useState('');
+  const [tipoDocumentoSelecionado, setTipoDocumentoSelecionado] = useState({});
   const [documentoParaUpload, setDocumentoParaUpload] = useState(null);
 
   useEffect(() => {
@@ -26,17 +27,47 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
     setDocumentoParaUpload(file);
   };
 
-  const handleGerarDocumento = () => {
-    onGerarDocumento({
-      cliente: clienteFormulario,
-      tipoDocumento: tipoDocumentoSelecionado,
-      documento: documentoParaUpload,
-      // ... outros dados necessários
-    });
+  const handleGerarDocumento = async () => {
+    try {
 
-    // Feche o formulário após gerar o documento
-    onClose();
+      
+    
+      console.log(tipoDocumentoSelecionado)
+      const tagsDocumento = tipoDocumentoSelecionado.split(' ');
+      const colunasClientes = Object.keys(clienteFormulario);
+
+      const tagsAusentes = tagsDocumento.filter(tag => !colunasClientes.includes(tag));
+
+      if (tagsAusentes.length > 0) {
+        const informacoesAdicionais = {};
+        for (const tagAusente of tagsAusentes) {
+          const informacao = prompt(`Digite a informação para ${tagAusente}:`);
+          informacoesAdicionais[tagAusente] = informacao;
+        }
+  
+        // Adicione as informações adicionais ao clienteFormulario
+        Object.assign(clienteFormulario, informacoesAdicionais);
+      }
+
+
+      const formData = new FormData();
+      formData.append('cliente', JSON.stringify(clienteFormulario));
+      formData.append('tipoDocumento', tipoDocumentoSelecionado);
+      formData.append('documento', documentoParaUpload);
+
+      // Envie a solicitação para o servidor
+      const responseDocumento = await axios.post('http://localhost:3030/gerarDocumento', formData);
+
+      // Lide com a resposta do servidor conforme necessário
+      console.log(responseDocumento.data);
+
+      // Feche o formulário após gerar o documento
+      onClose();
+    } catch (error) {
+      console.error('Erro ao gerar o documento', error);
+    }
   };
+
 
   return (
     <div className="formulario-container">
@@ -52,7 +83,7 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
             Selecione um tipo de documento
           </option>
           {tiposDocumentos.map((tipo) => (
-            <option key={tipo.id} value={tipo.id}>
+            <option key={tipo.id} value={tipo.tags}>
               {tipo.nome}
             </option>
           ))}
