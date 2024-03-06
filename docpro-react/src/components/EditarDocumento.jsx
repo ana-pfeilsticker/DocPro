@@ -1,7 +1,6 @@
 import React from 'react';
 import './EditarDocumento.css';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function EditarDocumento({ documento, onClose, onEdit }) {
 

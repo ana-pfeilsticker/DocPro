@@ -29,9 +29,6 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
 
   const handleGerarDocumento = async () => {
     try {
-
-      
-    
       console.log(tipoDocumentoSelecionado)
       const tagsDocumento = tipoDocumentoSelecionado.split(' ');
       const colunasClientes = Object.keys(clienteFormulario);
@@ -51,7 +48,11 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
         const informacoesAdicionais = {};
         for (const tagAusente of tagsAusentes) {
           const informacao = prompt(`Digite a informação para ${tagAusente}:`);
+          if (informacao === null) {
+            return;
+          }
           informacoesAdicionais[tagAusente] = informacao;
+          
         }
   
         // Adicione as informações adicionais ao clienteFormulario

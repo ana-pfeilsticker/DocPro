@@ -1,8 +1,6 @@
 import React from 'react';
 import './DetalhesCliente.css';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function DetalhesCliente({ cliente, onClose, onEditar, onGerar }) {
     const [edicao, setEdicao] = useState(false);

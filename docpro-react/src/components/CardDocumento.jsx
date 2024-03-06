@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import './CardDocumento.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';

@@ -1,7 +1,7 @@
 
 
 //essa página aqui é para os documentos, cadastro, visualização e etc
-
+import Deletepopup from '../components/Deletepopup';
 import React, { useEffect, useState } from 'react';
 import CadastroDocumento from '../components/CadastroDocumentos';
 import axios from 'axios';
@@ -17,6 +17,8 @@ function Documentos() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarEditar, setMostrarEditar] = useState(false);
   const [docEdicao, setdocEdicao] = useState();
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [deletePopupClientId, setDeletePopupClientId] = useState(null);
 
   const handleAbrirFormulario = () => {
     setMostrarFormulario(true);
@@ -59,6 +61,8 @@ const handleExcluir = (id) => {
   } catch (error) {
       console.error('Erro ao excluir o dado', error);
   }
+  setShowDeletePopup(false)
+  setDeletePopupClientId(null)
 };
 
 const handleAbrirFormDoc = (documento) => {
@@ -95,11 +99,25 @@ const handleEditar = async (id, novosDados) => {
         <CardDocumento 
           key={item.id}
           documento={item}
-          onDelete={handleExcluir}
+          onDelete={() => {
+            setShowDeletePopup(true);
+            setDeletePopupClientId(item.id);
+          }}
           onEdit={handleAbrirFormDoc}
         />
       ))}
       </ul>
+      {showDeletePopup && (
+        <Deletepopup
+          onConfirm={async () => {
+            handleExcluir(deletePopupClientId);
+          }}
+          onCancel={() => {
+            setShowDeletePopup(false);
+            setDeletePopupClientId(null);
+          }}
+        />
+      )}
       <button onClick={handleAbrirFormulario}>Novo Documento</button>
 
       {mostrarFormulario && (

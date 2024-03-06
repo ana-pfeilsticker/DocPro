@@ -5,6 +5,7 @@ import CardCliente from '../components/CardCliente';
 import DetalhesCliente from '../components/DetalhesCliente';
 import './Clientes.css';
 import Preenchimento from '../components/Preenchimento';
+import Deletepopup from '../components/Deletepopup';
 
 
 function Clientes() {
@@ -13,6 +14,8 @@ function Clientes() {
     const [termoPesquisa, setTermoPesquisa] = useState('');
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     const [clienteFormulario, setClienteFormulario] = useState(null);
+    const [showDeletePopup, setShowDeletePopup] = useState(false);
+    const [deletePopupClientId, setDeletePopupClientId] = useState(null);
 
 
     useEffect(() => {
@@ -48,18 +51,16 @@ function Clientes() {
         setClienteSelecionado(null);
     };
 
-    const handleExcluir = async (id) => {
-        setDados((dados) => dados.filter(item => item.id !== id));
-        
-        try {
+    const handleExcluir =  (id) => {
 
-            await axios.delete(`http://localhost:3030/dados/${id}`);
-  
+        setDados((dados) => dados.filter(item => item.id !== id));
+        try {
+             axios.delete(`http://localhost:3030/dados/${id}`);
         } catch (error) {
             console.error('Erro ao excluir o dado', error);
         }
-        
-
+        setShowDeletePopup(false);
+        setDeletePopupClientId(null);
     };
 
     const handlePesquisa = (event) => {
@@ -107,10 +108,25 @@ function Clientes() {
           key={item.id}
           cliente={item}
           onClick={handleNameClick}
-          onDelete={handleExcluir}
+          onDelete={() => {
+            setShowDeletePopup(true);
+            setDeletePopupClientId(item.id);
+          }}
         />
       ))}
     </ul>
+
+    {showDeletePopup && (
+        <Deletepopup
+          onConfirm={async () => {
+            handleExcluir(deletePopupClientId);
+          }}
+          onCancel={() => {
+            setShowDeletePopup(false);
+            setDeletePopupClientId(null);
+          }}
+        />
+      )}
 
     {clienteSelecionado && (
       <DetalhesCliente
@@ -121,9 +137,6 @@ function Clientes() {
       />
 
     )}
-
-
-        
     {mostrarFormulario && (
             <Preenchimento
               clienteFormulario={clienteFormulario}
