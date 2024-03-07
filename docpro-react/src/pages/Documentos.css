@@ -1,2 +1,17 @@
-
-  
+.search-bar-docs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.search-icon-docs {
+    font-size: 20px;
+    margin-left: -35px;
+    cursor: pointer;
+    color: #333;
+  }
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+  }

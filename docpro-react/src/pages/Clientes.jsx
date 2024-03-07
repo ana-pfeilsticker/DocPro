@@ -6,7 +6,8 @@ import DetalhesCliente from '../components/DetalhesCliente';
 import './Clientes.css';
 import Preenchimento from '../components/Preenchimento';
 import Deletepopup from '../components/Deletepopup';
-
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Clientes() {
     const [dados, setDados] = useState([]);
@@ -92,14 +93,14 @@ function Clientes() {
   <div className="full-screen-container">
     <h1>Clientes</h1>
 
-    <div className="search-bar">
+    <div className="search-bar-clientes">
       <input
         type="text"
         placeholder="Pesquisar por nome"
         value={termoPesquisa}
         onChange={handlePesquisa}
       />
-      <span className="search-icon">&#128269;</span>
+      <FontAwesomeIcon className="search-icon-clientes" icon={faMagnifyingGlass} />
     </div>
 
     <ul className="client-list">

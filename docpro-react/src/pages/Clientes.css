@@ -11,7 +11,7 @@ h1 {
   color: #333;
 }
 
-.search-bar {
+.search-bar-clientes {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -24,7 +24,7 @@ input {
   width: 70%;
 }
 
-.search-icon {
+.search-icon-clientes {
   font-size: 20px;
   margin-left: -35px;
   cursor: pointer;

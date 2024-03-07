@@ -8,9 +8,16 @@ import axios from 'axios';
 import './Documentos.css'
 import CardDocumento from '../components/CardDocumento';
 import EditarDocumento from '../components/EditarDocumento';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 function Documentos() {
 
   const [dados, setDados] = useState([]);
+
+  const handlePesquisa = (event) => {
+    setTermoPesquisa(event.target.value);
+  };
 
 
     //isso aqui vai controlar a abeertura do pop up
@@ -19,6 +26,7 @@ function Documentos() {
   const [docEdicao, setdocEdicao] = useState();
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [deletePopupClientId, setDeletePopupClientId] = useState(null);
+  const [termoPesquisa, setTermoPesquisa] = useState('');
 
   const handleAbrirFormulario = () => {
     setMostrarFormulario(true);
@@ -89,13 +97,24 @@ const handleEditar = async (id, novosDados) => {
   }
 };
 
-
+const docsPesquisados = dados.filter(documento => documento.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+);
   return (
     <div>
       <h1>Documentos</h1>
 
+      <div className="search-bar-docs">
+      <input
+        type="text"
+        placeholder="Pesquisar por documento"
+        value={termoPesquisa}
+        onChange={handlePesquisa}
+      />
+      <FontAwesomeIcon className="search-icon-docs" icon={faMagnifyingGlass} />
+    </div>
+
       <ul className="document-list" >
-      {dados.map((item) => (
+      {docsPesquisados.map((item) => (
         <CardDocumento 
           key={item.id}
           documento={item}
