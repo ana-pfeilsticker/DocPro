@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Router, Routes, Route } from 'react-router-dom';
 import Clientes from './pages/Clientes';
 import Documentos from './pages/Documentos';
 import Comofunciona from './pages/Comofunciona';
@@ -9,15 +9,17 @@ import Navbar from './components/Navbar';
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
+    <Fragment>
       {window.location.pathname !== '/Login' && <Navbar />}
       <Routes>
-        <Route path="/Login" element={<Login />} />
+        <Route path="*" element={<Login />} />
         <Route path="/Clientes" element={<Clientes />} />
         <Route path="/Documentos" element={<Documentos />} />
         <Route path="/Comofunciona" element={<Comofunciona />} />
       </Routes>
-    </Router>
+    </Fragment>
+    </BrowserRouter>
   );
 };
 
