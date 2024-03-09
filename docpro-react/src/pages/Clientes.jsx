@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardCliente from '../components/CardCliente';
 import DetalhesCliente from '../components/DetalhesCliente';
+import { useLocation } from 'react-router-dom';
 import './Clientes.css';
 import Preenchimento from '../components/Preenchimento';
 import Deletepopup from '../components/Deletepopup';
@@ -17,7 +18,8 @@ function Clientes() {
     const [clienteFormulario, setClienteFormulario] = useState(null);
     const [showDeletePopup, setShowDeletePopup] = useState(false);
     const [deletePopupClientId, setDeletePopupClientId] = useState(null);
-
+    const location = useLocation();
+    const userid = parseInt(new URLSearchParams(location.search).get('userid'));
 
     useEffect(() => {
         const fetchData = async () => {
@@ -68,9 +70,10 @@ function Clientes() {
         setTermoPesquisa(event.target.value);
     };
 
-    const clientesPesquisados = dados.filter(cliente => cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+    const clientesPesquisados = dados.filter(cliente => 
+      cliente.chave === userid && // Substitua "userid" pelo nome correto da chave no objeto do cliente
+      cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
     );
-
 
     const handleEditar = async (id, novosDados) => {
         try {
@@ -87,8 +90,7 @@ function Clientes() {
         }
       };
       
-
-
+      
       return (
   <div className="full-screen-container">
     <h1>Clientes</h1>
@@ -145,9 +147,7 @@ function Clientes() {
             />
           )}
   </div>
-);
-
-      
+);     
 }
 
 export default Clientes;

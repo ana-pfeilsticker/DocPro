@@ -5,6 +5,7 @@ const multer = require('multer')
 const path = require('path');
 const fs = require('fs').promises;
 
+
 const preencherDocumento = require('./preenchimento'); 
 
 
@@ -79,6 +80,41 @@ app.get('/documentos', (req, res) => {
     res.json(result)
   })
 });
+
+
+app.route('/login')
+  .get(async (req, res) => {
+    try {
+      const result = await sequelize.query('SELECT * FROM Login', { type: Sequelize.QueryTypes.SELECT });
+      res.json(result);
+    } catch (error) {
+      console.error('Erro ao obter dados de login:', error);
+      res.status(500).json({ error: 'Erro ao obter dados de login.' });
+    }
+  })
+  .post(async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+      const result = await sequelize.query(
+        'SELECT * FROM Login WHERE email = ? AND senha = ?',
+        {
+          replacements: [email, senha],
+          type: Sequelize.QueryTypes.SELECT,
+        }
+      );
+      res.json(result);
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+    }
+  });
+
+// app.get('/login', (req, res) => {
+//   sequelize.query('SELECT * FROM Login', {type: Sequelize.QueryTypes.SELECT })   //recebe os dados do dw
+//   .then(result => {
+//     res.json(result)
+//   })
+// });
 
 
 
