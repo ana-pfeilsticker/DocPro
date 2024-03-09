@@ -7,6 +7,7 @@
   max-width: 300px; /* Largura máxima do card */
   width: 100%; /* Garante que o card ocupa 100% da largura do container */
   box-sizing: border-box; /* Garante que a largura inclui padding e borda */
+  
 }
 
 .card-header {

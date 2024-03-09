@@ -18,7 +18,7 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
 
     try {
       //estabelecendo conexão com o servidor
-      const response = await axios.post('http://localhost:3030/documentos', {
+      await axios.post('http://localhost:3030/documentos', {
         nome,
         tags,
       });
