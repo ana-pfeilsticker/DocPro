@@ -22,8 +22,7 @@ const Login = () => {
             console.log(res)
             return
         }
-
-        navigate("/Documentos")
+        navigate("/Clientes")
     }
 
     return (
@@ -32,7 +31,7 @@ const Login = () => {
 
                 <div className='email'>
                     <label htmlFor='email-login'>Email</label>
-                    <input type='' placeholder='Insira o seu email' className='form-control'
+                    <input type='email' placeholder='Insira o seu email' className='form-control'
                     onChange={e => setEmail(e.target.value)}/>
                 </div>
 
