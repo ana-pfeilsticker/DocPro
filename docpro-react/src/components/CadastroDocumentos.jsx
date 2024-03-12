@@ -32,7 +32,7 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
   return (
     <div className="popup-container">
       <div className="popup-content">
-        <h2>Cadastrar Documento</h2>
+        <h2 className='cadastrar-documento'>Cadastrar Documento</h2>
         <form onSubmit={handleSubmit}>
           <label>
             Nome:
@@ -45,8 +45,8 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
           </label>
           <br />
           <div className="button-container">
-            <button type="submit">Cadastrar Documento</button>
-            <button type="button" onClick={onClose}>
+            <button className='cadastrar' type="submit">Cadastrar Documento</button>
+            <button className='fechar' type="button" onClick={onClose}>
               Fechar
             </button>
           </div>

@@ -101,8 +101,8 @@ const handleEditar = async (id, novosDados) => {
 const docsPesquisados = dados.filter(documento => documento.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
 );
   return (
-    <div>
-      <h1>Documentos</h1>
+    <div className='page-container'>
+      <h1 className='titulo'>Documentos</h1>
 
       <div className="search-bar-docs">
       <input
@@ -138,7 +138,7 @@ const docsPesquisados = dados.filter(documento => documento.nome.toLowerCase().i
           }}
         />
       )}
-      <button onClick={handleAbrirFormulario}>Novo Documento</button>
+      <button className= "novo-documento" onClick={handleAbrirFormulario}>Novo Documento</button>
 
       {mostrarFormulario && (
         <CadastroDocumento

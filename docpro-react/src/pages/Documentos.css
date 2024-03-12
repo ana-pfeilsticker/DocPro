@@ -1,17 +1,45 @@
+
+.page-container{
+  padding: 3%;
+}
+
+.titulo{
+  color: #2D8ADB;
+}
+
+
+
+
 .search-bar-docs {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 1%;
     margin-bottom: 20px;
+    width: 30%;
 }
 .search-icon-docs {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: -35px;
     cursor: pointer;
     color: #333;
+    margin-bottom: 10px;
   }
   input {
-    padding: 10px;
+    
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 70%;
+  }
+
+  .novo-documento{
+ 
+      background: #3498db;
+      box-shadow: 3px 3px 3px rgba(65, 65, 65, 0.178);
+      color: #fff;
+      transition: .3s;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+    
   }

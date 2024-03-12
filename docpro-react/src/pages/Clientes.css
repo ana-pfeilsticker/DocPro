@@ -6,15 +6,21 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.full-screen-container{
+  padding:3%;
+}
 
 h1 {
-  color: #333;
+  color: #2D8ADB;
 }
 
 .search-bar-clientes {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 1%;
   margin-bottom: 20px;
+  width: 30%;
 }
 
 input {
@@ -28,6 +34,7 @@ input {
   font-size: 20px;
   margin-left: -35px;
   cursor: pointer;
+  margin-bottom: 10px;
   color: #333;
 }
 
