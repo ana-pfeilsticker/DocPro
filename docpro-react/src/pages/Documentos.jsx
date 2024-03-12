@@ -10,18 +10,13 @@ import CardDocumento from '../components/CardDocumento';
 import EditarDocumento from '../components/EditarDocumento';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useAuth from '../hooks/useAuth';
 function Documentos() {
-  const { user } = useAuth()
-  console.log("ID DOCUMENTOS "+user.id)
   const [dados, setDados] = useState([]);
 
   const handlePesquisa = (event) => {
     setTermoPesquisa(event.target.value);
   };
 
-
-    //isso aqui vai controlar a abeertura do pop up
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarEditar, setMostrarEditar] = useState(false);
   const [docEdicao, setdocEdicao] = useState();

@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 import axios from 'axios';
-import cryptoRandomString  from 'crypto-random-string';
 
 export const AuthContext = createContext({})
 
@@ -18,8 +17,8 @@ export const AuthProvider = ({ children }) => {
 
             if (finduser) {
                 if (finduser.email === email && finduser.senha === senha) {
-                    const token = cryptoRandomString({ length: 256, type: 'base64' });
-                    sessionStorage.setItem("user_token", JSON.stringify({ email, token }));
+                    const id = finduser.id
+                    sessionStorage.setItem("user_token", JSON.stringify({ id }));
                     setUser(finduser);
                 } else {
                     return "E-mail ou senha incorretos";
@@ -31,25 +30,5 @@ export const AuthProvider = ({ children }) => {
             console.error("Erro durante o login:", error);
         }
     };
-
-    
-
-    // useEffect(() => {
-    //     const handleStorageEvent = (event) => {
-    //       if (event.key === "user_token") {
-    //         const newUser = JSON.parse(event.newValue);
-    //         setUser(newUser);
-    //       }
-    //     };
-    
-    //     // Adiciona um ouvinte para o evento de armazenamento
-    //     window.addEventListener("storage", handleStorageEvent);
-    
-    //     return () => {
-    //       // Remove o ouvinte quando o componente é desmontado
-    //       window.removeEventListener("storage", handleStorageEvent);
-    //     };
-    //   }, []);
-
     return <AuthContext.Provider value={{ user, signed: !!user, login }} >{children}</AuthContext.Provider>
 }
