@@ -11,6 +11,7 @@
   }
   
   .popup-content {
+    margin-top: 1%;
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -19,9 +20,32 @@
   
   .button-container {
     margin-top: 10px;
+  
   }
 
-.button-container button{
-    margin-left: 3%;
+.cadastrar{
+  background: #3498db;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.199);
+  color: #fff;
+  transition: .3s;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  margin-right: 10px;
 }
-  
+
+.fechar{
+  background-color: white;
+  color: rgb(99, 99, 99);;
+  border-radius: 8px;
+  outline: 1px solid rgb(99, 99, 99);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.185);
+  margin-top: 1.5%;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.cadastrar-documento{
+  color: #3498db;
+  margin-bottom: 1%;
+}

@@ -39,14 +39,13 @@
 }
 .navegacao a{
     text-decoration: none;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
     color: #787878;
     display: flex;
     align-items: center;
     margin: 0 1rem;
     transition: 0.3s;
-    font-weight: bold;
     margin: 15px;
     padding: 10px;
 }
@@ -69,13 +68,12 @@
     text-decoration: none;
     color: #FFFFFF;
     background-color: transparent;
-    font-size: 17px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
     outline: 1px solid #FFFFFF;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     transition: 0.3s;
     border-radius: 4px;
-    font-weight: bold;
 }
 .comofuncionabutton:hover{
     background-color: #0d72b6;
