@@ -22,7 +22,6 @@ const RoutesApp = () => {
             window.location.pathname === "/Comofunciona") &&
             signed && <Navbar />}
                 <Routes>
-                
                     <Route exact path="/Clientes" element={<Private Item={Clientes}/>} />
                     <Route exact path="/Documentos" element={<Private Item={Documentos}/>} />
                     <Route exact path="/Comofunciona" element={<Private Item={Comofunciona}/>} />
