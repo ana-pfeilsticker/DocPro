@@ -1,5 +1,5 @@
 import { Fragment  } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Clientes from "../pages/Clientes"
 import Documentos from "../pages/Documentos"
 import Login from "../pages/Login"

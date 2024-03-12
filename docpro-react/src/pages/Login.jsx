@@ -9,7 +9,6 @@ const Login = () => {
     const [senha, setSenha] = useState('')
     const { login } = useAuth()
     const navigate = useNavigate()
-    
     const handleLogin = async (event) => {
         event.preventDefault()
         if (!email | !senha){
@@ -24,7 +23,6 @@ const Login = () => {
         }
         navigate("/Clientes")
     }
-
     return (
         <div className="overlay">
           <form onSubmit={handleLogin}>
