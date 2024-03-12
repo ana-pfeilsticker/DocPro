@@ -104,6 +104,7 @@ app.route('/login')
         }
       );
       res.json(result);
+      return result
     } catch (error) {
       console.error('Erro ao fazer login:', error);
     }

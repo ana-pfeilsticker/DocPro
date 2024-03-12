@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardCliente from '../components/CardCliente';
 import DetalhesCliente from '../components/DetalhesCliente';
-import { useLocation } from 'react-router-dom';
 import './Clientes.css';
 import Preenchimento from '../components/Preenchimento';
 import Deletepopup from '../components/Deletepopup';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useAuth from '../hooks/useAuth';
 
 function Clientes() {
+    const { user } = useAuth()
     const [dados, setDados] = useState([]);
     const [clienteSelecionado, setClienteSelecionado] = useState(null);
     const [termoPesquisa, setTermoPesquisa] = useState('');
@@ -18,10 +19,9 @@ function Clientes() {
     const [clienteFormulario, setClienteFormulario] = useState(null);
     const [showDeletePopup, setShowDeletePopup] = useState(false);
     const [deletePopupClientId, setDeletePopupClientId] = useState(null);
-    const location = useLocation();
-    const userid = parseInt(new URLSearchParams(location.search).get('userid'));
 
     useEffect(() => {
+      console.log("ID CLIENTES "+user.id)
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:3030/dados');
@@ -30,7 +30,6 @@ function Clientes() {
                 console.error('Erro ao obter dados da API', error);
             }
         };
-
         fetchData();
     }, []);
 
@@ -70,9 +69,7 @@ function Clientes() {
         setTermoPesquisa(event.target.value);
     };
 
-    const clientesPesquisados = dados.filter(cliente => 
-      cliente.chave === userid && // Substitua "userid" pelo nome correto da chave no objeto do cliente
-      cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+    const clientesPesquisados = dados.filter(cliente => cliente.chave === user.id && cliente.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
     );
 
     const handleEditar = async (id, novosDados) => {

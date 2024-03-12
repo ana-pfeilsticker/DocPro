@@ -1,39 +1,38 @@
 import React, { useState } from 'react';
 import './Login.css'
-import axios from 'axios';
+import useAuth from '../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
 
-function Login() {
+const Login = () => {
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
-    const [userid, setUserid] = useState(-1);
-
-    const handleSubmit = async (event) => {
-
+    const { login } = useAuth()
+    const navigate = useNavigate()
+    
+    const handleLogin = async (event) => {
         event.preventDefault()
-        try {
-            const response = await axios.post("http://localhost:3030/login", {email, senha})
-            if (response.data.length > 0){
-                const userId = response.data[0].id;
-                localStorage.setItem('userId', userId); // Armazena o ID do usuário no local storage
-                window.location.href = `/clientes?userid=${userId}`;
-            }
-            
-            else {
-                console.log("Erro ao logar")
-            }
-        } catch (error) {
-            console.error("Erro ao fazer o login "+error)
+        if (!email | !senha){
+            console.log("Preencha todos os campos")
+            return
         }
+        const res = await login(email, senha)
+
+        if (res) {
+            console.log(res)
+            return
+        }
+
+        navigate("/Clientes")
     }
 
     return (
         <div className="overlay">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleLogin}>
 
                 <div className='email'>
                     <label htmlFor='email-login'>Email</label>
-                    <input type='email' placeholder='Insira o seu email' className='form-control'
+                    <input type='' placeholder='Insira o seu email' className='form-control'
                     onChange={e => setEmail(e.target.value)}/>
                 </div>
 
