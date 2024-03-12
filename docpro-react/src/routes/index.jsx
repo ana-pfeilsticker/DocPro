@@ -1,8 +1,9 @@
 import { Fragment  } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Clientes from "../pages/Clientes"
 import Documentos from "../pages/Documentos"
 import Login from "../pages/Login"
+import Comofunciona from "../pages/Comofunciona"
 import useAuth from "../hooks/useAuth";
 import Navbar from "../components/Navbar";
 
@@ -16,13 +17,15 @@ const RoutesApp = () => {
     return (
         <BrowserRouter>
             <Fragment>
-            {(window.location.pathname === "/Clientes" ||
-          window.location.pathname === "/Documentos") &&
-          signed && <Navbar />}
+            {(window.location.pathname === "/Clientes" || 
+            window.location.pathname === "/Documentos" || 
+            window.location.pathname === "/Comofunciona") &&
+            signed && <Navbar />}
                 <Routes>
                 
                     <Route exact path="/Clientes" element={<Private Item={Clientes}/>} />
                     <Route exact path="/Documentos" element={<Private Item={Documentos}/>} />
+                    <Route exact path="/Comofunciona" element={<Private Item={Comofunciona}/>} />
                     <Route path="/" element={<Login/>} />
                     <Route path="*" element={<Login/>} />
                 </Routes>
