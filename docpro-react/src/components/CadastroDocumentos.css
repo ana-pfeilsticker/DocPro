@@ -13,7 +13,7 @@
   .popup-content {
     margin-top: 1%;
     background: white;
-    padding: 20px;
+    padding: 60px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
@@ -24,14 +24,18 @@
   }
 
 .cadastrar{
-  background: #3498db;
+  background: #0c53dc;;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.199);
   color: #fff;
   transition: .3s;
   border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
   margin-right: 10px;
+}
+
+.cadastrar:hover{
+  background: #0a436f;
 }
 
 .fechar{
@@ -41,11 +45,24 @@
   outline: 1px solid rgb(99, 99, 99);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.185);
   margin-top: 1.5%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
 }
 
+
+.fechar:hover{
+  background: #787878;
+}
+
+.fechar:hover{
+  background: #787878;
+  color: white;
+}
+
+
 .cadastrar-documento{
   color: #3498db;
-  margin-bottom: 1%;
+  margin-bottom: 10%;
+  font-family: "Inter" sans-serif;
+  font-size: 28px;
 }

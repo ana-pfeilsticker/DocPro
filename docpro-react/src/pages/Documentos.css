@@ -16,7 +16,7 @@
     align-items: center;
     margin-top: 1%;
     margin-bottom: 20px;
-    width: 30%;
+    width: 100%;
 }
 .search-icon-docs {
     font-size: 18px;
@@ -34,7 +34,7 @@
 
   .novo-documento{
  
-      background: #3498db;
+      background:#0c53dc;
       box-shadow: 3px 3px 3px rgba(65, 65, 65, 0.178);
       color: #fff;
       transition: .3s;
@@ -43,3 +43,39 @@
       cursor: pointer;
     
   }
+
+  .novo-documento:hover {
+    background: #0a436f; /* Azul mais escuro */
+  }
+
+.document-list{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2%;
+}
+
+/* Adicionando estilos para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+  .search-bar-docs {
+    width: 100%;
+  }
+  
+  input {
+    width: 100%;
+  }
+}
+
+/* Adicionando estilos para dispositivos de tela pequena */
+@media only screen and (max-width: 480px) {
+  .novo-documento {
+    width: 100%;
+  }
+}
+
+/* Adicionando estilos para dispositivos de tela muito pequena */
+@media only screen and (max-width: 320px) {
+  .search-icon-docs {
+    margin-left: -20px;
+  }
+}

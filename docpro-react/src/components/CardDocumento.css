@@ -1,39 +1,63 @@
 .card-cliente {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    margin: 10px;
-    max-width: 300px; /* Largura máxima do card */
-    width: 100%; /* Garante que o card ocupa 100% da largura do container */
-    box-sizing: border-box; /* Garante que a largura inclui padding e borda */
+  width: 80%;
+  height: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 28px;
+  padding-bottom: 10px;
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: auto;
+  display: flex; 
+
   }
+  
   
   .card-header {
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+  }
+
+  .card-header h3{
+    color: #353535;
+    font-size: 18px;
+    font-family: Inter;
+    font-weight: 600;
+    letter-spacing: 0.72px;
+    word-wrap: break-word;
+  }
+
+  .card-header p{
+    color: #9c9c9c;
+    font-size: 14px;
+    font-family: Inter;
+    font-weight: 300;
+    letter-spacing: 0.42px;
+    word-wrap: break-word;
   }
   
-  .conteudo-card {
-    flex: 1; /* Ocupa todo o espaço disponível, exceto a área ocupada pela div da lixeira */
-    cursor: pointer;
+  .conteudo-doc {
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    display: flex;
+    flex-grow: 1;
   }
   
-  .card-cliente h3 {
-    margin: 0;
-    color: #333;
-  }
+
   
-  .card-cliente h3 + div {
-    margin-left: 8px;
-  }
-  
-  .lixeira-container {
-    /* Estilos específicos para a div da lixeira */
-    cursor: pointer;
-  }
-  
+
   /* Adicionando estilo para dispositivos pequenos (mobile) */
   @media only screen and (max-width: 600px) {
     .card-cliente {
@@ -41,3 +65,86 @@
     }
   }
   
+  .Frame7 {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    gap: 19px;
+    display: flex;
+  }
+  
+  .Frame4 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+    background: #0c53dc;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+  }
+  
+  .pencil {
+    width: 12px;
+    height: 14.09px;
+    color: #e8e8e8;
+  }
+  
+  .ComoFunciona {
+    color: #e8e8e8;
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 400;
+    letter-spacing: 0.36px;
+    word-wrap: break-word;
+  }
+  
+  .Frame5 .ComoFunciona {
+    color: #787878;
+  }
+  
+  .Frame5 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+    border: 1px solid gray;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+  }
+
+  .lixeira{
+    width: 12px;
+    height: 14.09px;
+    color: gray;
+  }
+
+
+  .Frame4:hover {
+    background: #0a436f; /* Azul mais escuro */
+  }
+  
+  .Frame5:hover {
+    background: #787878; /* Cor da borda */
+  }
+  
+  .Frame5:hover p{
+    color: white; /* Cor da borda */
+  }
+
+
+  .Frame5:hover .lixeira {
+    color: white; /* Cor do ícone alterada para branco */
+  }

@@ -31,6 +31,7 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
 
   return (
     <div className="popup-container">
+      
       <div className="popup-content">
         <h2 className='cadastrar-documento'>Cadastrar Documento</h2>
         <form onSubmit={handleSubmit}>
