@@ -23,7 +23,7 @@ const Login = () => {
             return
         }
 
-        navigate("/Documentos")
+        navigate("/Clientes")
     }
 
     return (
