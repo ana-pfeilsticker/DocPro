@@ -95,7 +95,7 @@ function Clientes() {
     <div className="search-bar-clientes">
       <input
         type="text"
-        placeholder="Pesquisar por nome"
+        placeholder="Pesquisar nome..."
         value={termoPesquisa}
         onChange={handlePesquisa}
       />

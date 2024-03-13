@@ -1,5 +1,5 @@
 .navbar{
-    background-color: #e6e6e6;
+    background-color: #eeeeee;
     margin: 1% 2%;
     border-radius: 15px;
     min-height: 80px;
@@ -39,7 +39,7 @@
 }
 .navegacao a{
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Inter', sans-serif;
     color: #787878;
     display: flex;
@@ -53,13 +53,14 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 30%;
 }
 .comofuncionacontainer{
-    background-image: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(12,83,220,1) 30%, rgba(54,140,217,1) 100%);
+    background-image: linear-gradient(90deg, hsl(0, 0%, 94%) 0%, rgba(12,83,220,1) 30%, rgba(54,140,217,1) 100%);
     min-width: 30%;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    justify-content: center;
+    justify-content: flex-end;
     display: flex;
     align-items: center;
 }
@@ -74,6 +75,7 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     transition: 0.3s;
     border-radius: 4px;
+    margin-right: 10%;
 }
 .comofuncionabutton:hover{
     background-color: #0d72b6;
