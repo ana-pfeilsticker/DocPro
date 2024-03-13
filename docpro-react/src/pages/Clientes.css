@@ -20,7 +20,7 @@ h1 {
   align-items: center;
   margin-top: 1%;
   margin-bottom: 20px;
-  width: 30%;
+  width: 100%;
 }
 
 input {
@@ -41,7 +41,8 @@ input {
 .client-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Add styling for CardCliente and DetalhesCliente components if needed */
 

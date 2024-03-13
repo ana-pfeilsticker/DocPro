@@ -1,5 +1,5 @@
 .card-cliente {
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
@@ -7,24 +7,22 @@
   max-width: 300px; /* Largura máxima do card */
   width: 100%; /* Garante que o card ocupa 100% da largura do container */
   box-sizing: border-box; /* Garante que a largura inclui padding e borda */
-  
+  justify-content: space-between;
 }
 
 .card-header {
+  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .conteudo-card {
+  display: flex;
   flex: 1; /* Ocupa todo o espaço disponível, exceto a área ocupada pela div da lixeira */
   cursor: pointer;
 }
 
-.card-cliente h3 {
-  margin: 0;
-  color: #333;
-}
 
 .card-cliente h3 + div {
   margin-left: 8px;
