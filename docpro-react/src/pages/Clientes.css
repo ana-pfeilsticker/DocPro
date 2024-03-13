@@ -14,30 +14,44 @@ h1 {
   color: #2D8ADB;
 }
 
-.search-bar-clientes {
+
+
+.barraetituloclientes{
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 1%;
-  margin-bottom: 20px;
-  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 2%;
 }
 
-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 70%;
+.search-bar-clientes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+  
+    width: 20%;
+    height: 40px;
 }
-
 .search-icon-clientes {
-  font-size: 20px;
-  margin-left: -35px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  color: #333;
-}
-
+    font-size: 18px;
+    margin-left: -35px;
+    cursor: pointer;
+    color: #575656;
+    margin-bottom: 10px;
+  }
+  input {
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    height: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    
+  }
+  .search-bar-clientes input:focus {
+    outline: none;
+  }
 .client-list {
   list-style: none;
   padding: 0;

@@ -8,21 +8,27 @@
 }
 
 
-
+.barraetitulo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
 
 .search-bar-docs {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1%;
-    margin-bottom: 20px;
-    width: 100%;
+  
+    width: 20%;
+    height: 40px;
 }
 .search-icon-docs {
     font-size: 18px;
     margin-left: -35px;
     cursor: pointer;
-    color: #333;
+    color: #575656;
     margin-bottom: 10px;
   }
   input {
@@ -30,6 +36,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 70%;
+    height: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    
+  }
+  .search-bar-docs input:focus {
+    outline: none;
   }
 
   .novo-documento{

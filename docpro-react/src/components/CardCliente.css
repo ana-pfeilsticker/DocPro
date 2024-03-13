@@ -1,5 +1,5 @@
 .card-cliente {
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
@@ -14,7 +14,6 @@
   flex: 1;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .conteudo-cliente {
@@ -26,7 +25,9 @@
 
 .card-cliente h3 + div {
   margin-left: 8px;
+
 }
+
 
 .lixeira-container {
   /* Estilos específicos para a div da lixeira */

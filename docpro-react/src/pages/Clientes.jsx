@@ -89,6 +89,7 @@ function Clientes() {
       
       return (
   <div className="full-screen-container">
+    <div className='barraetituloclientes'>  
     <h1>Clientes</h1>
 
     <div className="search-bar-clientes">
@@ -99,7 +100,8 @@ function Clientes() {
         onChange={handlePesquisa}
       />
       <FontAwesomeIcon className="search-icon-clientes" icon={faMagnifyingGlass} />
-    </div>
+    </div></div>
+  
 
     <ul className="client-list">
       {clientesPesquisados.map((item) => (

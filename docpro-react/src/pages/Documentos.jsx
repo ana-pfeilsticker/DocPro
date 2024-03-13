@@ -97,17 +97,20 @@ const docsPesquisados = dados.filter(documento => documento.nome.toLowerCase().i
 );
   return (
     <div className='page-container'>
+
+      <div className='barraetitulo'> 
       <h1 className='titulo'>Documentos</h1>
 
       <div className="search-bar-docs">
       <input
         type="text"
-        placeholder="Pesquisar por documento"
+        placeholder="Pesquisar documentos..."
         value={termoPesquisa}
         onChange={handlePesquisa}
       />
       <FontAwesomeIcon className="search-icon-docs" icon={faMagnifyingGlass} />
-    </div>
+    </div></div>
+     
 
       <ul className="document-list" >
       {docsPesquisados.map((item) => (
