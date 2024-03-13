@@ -4,6 +4,9 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .rotate {
     filter:blur(20px);
@@ -100,4 +103,12 @@
 }
 .email-login, .senha{
     margin-left: 1vh;
+}
+@media only screen and (max-width: 600px) {
+    .overlay {
+        padding: 20px; /* Adiciona um preenchimento para dispositivos móveis */
+    }
+    .rotate {
+        display: none; /* Esconde a rotação em dispositivos móveis */
+    }
 }

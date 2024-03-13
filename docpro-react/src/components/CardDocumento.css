@@ -78,6 +78,7 @@
   }
   
   .Frame4 {
+    transition: .3s;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -111,6 +112,7 @@
   }
   
   .Frame5 {
+    transition: .3s;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -133,11 +135,13 @@
 
 
   .Frame4:hover {
-    background: #0a436f; /* Azul mais escuro */
+    background: #0a436f;
+    transition: .3s; /* Azul mais escuro */
   }
   
   .Frame5:hover {
-    background: #787878; /* Cor da borda */
+    background: #787878; 
+    transition: .3s;/* Cor da borda */
   }
   
   .Frame5:hover p{
