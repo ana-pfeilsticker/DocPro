@@ -1,13 +1,103 @@
 .overlay {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Certifique-se de que o overlay está sobre os outros elementos */
+    background: rgba(0, 0, 0, 0.5); 
 }
- 
+.rotate {
+    filter:blur(20px);
+    border-radius: 20px;
+    width: 57vh;
+    height: 57vh;
+    background: linear-gradient(90deg, rgba(12,83,220,1) 0%, rgba(10,67,111,1) 100%);
+    transform: rotate(-6deg);
+    position: relative; 
+    z-index: 1; 
+}
+.login-button{
+    background: #0c53dc;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.199);
+    color: #fff;
+    transition: .3s;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+}
+.login-button:hover{
+    background: #0a436f;
+    color: #fff;
+    transition: .3s;
+}
+.card1 {
+    position: absolute;
+    display: flex;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin: 0;
+    min-width: 50vh;
+    min-height: 50vh;
+    max-width: 50vh;
+    max-height: 50vh;
+    z-index: 2; 
+}
+.inputs{
+    align-self: center;
+    width: 80%;
+    margin-bottom: 0vh;
+    margin-top: 6vh;
+}
+.card1 input {
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-bottom: 1px solid rgb(102, 102, 102);
+    padding: 10px;
+    outline: 0;
+    font-size: 14px;
+}
+.card1 label{
+    font-family: 'Inter', sans-serif;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+}
+.form{
+    align-items: center;
+    border-radius: 20px;
+    max-width: 44vh;
+    min-width: 44vh;
+    max-height: 44vh;
+    min-height: 44vh;
+}
+.texto-logo1{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.logo1{
+    font-family: 'Inter', sans-serif;
+    cursor: default;
+    margin-top: 3vh;
+}
+.texto-doc1{
+    font-size: 43px;
+    text-decoration: none;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(12,83,220,1) 0%, rgba(53,152,219,1) 30%);
+}
+.texto-pro1{
+    font-size: 43px;
+    font-weight: normal;
+    text-decoration: none;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(120,120,120,1) 0%, rgba(222,222,222,1) 200%);
+}
+.email-login, .senha{
+    margin-left: 1vh;
+}

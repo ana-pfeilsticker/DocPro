@@ -7,41 +7,50 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+    const [erro, setErro] = useState('')
     const { login } = useAuth()
     const navigate = useNavigate()
     const handleLogin = async (event) => {
         event.preventDefault()
-        if (!email | !senha){
-            console.log("Preencha todos os campos")
-            return
-        }
         const res = await login(email, senha)
-
-        if (res) {
-            console.log(res)
-            return
+        if (!email | !senha){
+            setErro("Preencha todos os campos")
         }
-        navigate("/Clientes")
+        else if (res) {
+            setErro(res)
+        }
+        else {
+            navigate("/Clientes")
+        }
     }
     return (
         <div className="overlay">
-          <form onSubmit={handleLogin}>
+            <div className='rotate'></div>
+            <div className='card1'>
+                <form onSubmit={handleLogin} className='form'>
+                    <div className='logo1'>
+                        <a className='texto-logo1'>
+                            <h2 className='texto-doc1'>Doc</h2>
+                            <h2 className='texto-pro1'>Pro</h2>
+                        </a>
+                    </div>
+                    <div className='inputs'>
+                        <div className='email'>
+                            <label className='email-login'>E-mail</label>
+                            <input placeholder='Insira o seu e-mail' className='form-control'
+                            onChange={e => setEmail(e.target.value)}/>
+                        </div>
 
-                <div className='email'>
-                    <label htmlFor='email-login'>Email</label>
-                    <input type='email' placeholder='Insira o seu email' className='form-control'
-                    onChange={e => setEmail(e.target.value)}/>
-                </div>
-
-                <div className='senha-login'>
-                    <label htmlFor='senha'>Senha</label>
-                    <input type='senha' placeholder='Insira sua senha' className='form-control'
-                    onChange={e => setSenha(e.target.value)}/>
-                </div>
-
-                <button className='login-button'>Login</button>
-
-            </form>
+                        <div className='senha-login'>
+                            <label className='senha'>Senha</label>
+                            <input type='password' placeholder='Insira sua senha' className='form-control'
+                            onChange={e => setSenha(e.target.value)}/>
+                        </div>
+                    </div>
+                    <label className='erro'>{erro}</label>
+                    <button className='login-button'>Login</button>
+                </form>
+            </div>
         </div>  
     )
 }
