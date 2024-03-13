@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.conteudo-card {
+.conteudo-cliente {
   display: flex;
   flex: 1; /* Ocupa todo o espaço disponível, exceto a área ocupada pela div da lixeira */
   cursor: pointer;

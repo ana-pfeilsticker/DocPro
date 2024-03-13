@@ -27,7 +27,7 @@
     cursor:default;
   }
   .button-deletar{
-    background: #3498db;
+    background: #0c53dc;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.199);
     color: #fff;
     transition: .3s;
@@ -57,7 +57,7 @@
   .icone{
     display: flex;
     justify-content: center;
-    color: #3498db;
+    color: #0c53dc;
     font-size: 250%;
     cursor: default;
   }
