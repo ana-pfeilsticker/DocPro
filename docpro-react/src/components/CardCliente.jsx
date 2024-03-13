@@ -11,10 +11,10 @@ const CardCliente = ({cliente, onClick, onDelete}) => {
         <div className="card-cliente">
           <div className="card-header">
             <div className="conteudo-card" onClick={() => onClick(cliente)}>
-              <h3>{cliente.nome}</h3>
+              <h3 className='nome'>{cliente.nome}</h3>
             </div>
             <div className="lixeira-container" onClick={() => onDelete(cliente.id)}>
-              <FontAwesomeIcon icon={faTrash} />
+              <FontAwesomeIcon className='lixeira' icon={faTrash} />
             </div>
           </div>
         </div>
