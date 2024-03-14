@@ -1,0 +1,179 @@
+.container-como-funciona{
+    padding:1%;
+    width: 90%;
+    height: 100%;
+
+  }
+
+
+
+
+.Comofunciona {
+    width: 100%;
+    height: auto;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2;
+    
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15%;
+    display: inline-flex;
+  }
+  
+  .Passoapasso {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 68px;
+    display: inline-flex;
+  }
+  
+  .Tituloesub {
+    align-self: stretch;
+    height: 10%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    display: flex;
+    margin-left: 8%;
+  }
+  
+  .titulopasso {
+    align-self: stretch;
+    color: #787878;
+    font-size: 2rem;
+    font-family: 'Inter';
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .subtitulopasso {
+    align-self: stretch;
+    color: #787878;
+    font-size: 1rem;
+    font-family: 'Inter';
+    font-weight: 200;
+    word-wrap: break-word;
+  }
+  
+  .Passos {
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 46px;
+    display: flex;
+  }
+  
+  .Passoum {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    display: inline-flex;
+  }
+
+  .textoum{
+    font-family: 'Inter';
+    font-weight: 200;
+    color: #787878;
+  }
+  
+
+  .num{
+    font-family: 'Inter';
+    font-weight: bolder;
+    font-size: 4rem;
+    color: #0C53DC;
+  }
+  .Passo2 {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    display: inline-flex;
+  }
+  
+  .Passo3 {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    display: inline-flex;
+  }
+  
+  .Tagspadroes {
+    flex: 1 1 0;
+    border-radius: 40px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 80px;
+    display: inline-flex;
+  }
+  
+  .Tituloesubtag {
+    align-self: stretch;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    display: flex;
+  }
+  
+  .TagsPadrEs {
+    color: #787878;
+    font-size: 2rem;
+    font-family: 'Inter';
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .AsTagsPadrEsSOPalavrasChavePrDefinidasPeloSistemaQueRepresentamInformaEsDosClientesJCadastradasComoNomeEndereOEEMailAoCriarUmDocumentoNoWordVocPodeColocarEssasTagsNosLugaresOndeDesejaQueAsInformaEsDosClientesApareAmPorExemploSeQuiserIncluirONomeDoClienteNoDocumentoBastaInserirATagCorrespondenteAoNomeNoLocalDesejado {
+    align-self: stretch;
+    color: #787878;
+    font-size: 1rem;
+    font-family: 'Inter';
+    font-weight: 200;
+    word-wrap: break-word;
+  }
+  
+  .Tags {
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 46px;
+    display: flex;
+  }
+  
+  .Frame12 {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+    display: inline-flex;
+  }
+  
+  .TagsPadrEsNomeNomeEmailEmailNacionalidadeNacionalidadeEstadoCivilEstadoCivilProfissOProfissaoNomeDoPaiNomePaiNomeDaMENomeMaeCpfCpfRgRgOrgOEmissorOrgEmissorNitNitCtpsCtpsSRieCtpsSerieCtpsEndereOEnderecoCepCepUfUfCelularCelularDataDeNascimentoDataNascimento {
+    flex: 1 1 0;
+    color: #0C53DC;
+    font-size: 1rem;
+    font-family: 'Inter';
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: 110%;
+  }
+  
+  .TagsPadrEsNomeNomeEmailEmailNacionalidadeNacionalidadeEstadoCivilEstadoCivilProfissOProfissaoNomeDoPaiNomePaiNomeDaMENomeMaeCpfCpfRgRgOrgOEmissorOrgEmissorNitNitCtpsCtpsSRieCtpsSerieCtpsEndereOEnderecoCepCepUfUfCelularCelularDataDeNascimentoDataNascimento {
+    color: #787878;
+    font-size: 1rem;
+    font-family: 'Inter';
+    font-weight: 300;
+    word-wrap: break-word;
+  }
+  
