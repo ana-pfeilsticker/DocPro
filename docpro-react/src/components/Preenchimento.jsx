@@ -89,7 +89,7 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
   return (
     <div className="formulario-container">
 
-      <form>
+      <form className='formulario'> 
         <label htmlFor="tipoDocumento">Tipo de Documento:</label>
         <select
           id="tipoDocumento"

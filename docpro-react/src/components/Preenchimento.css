@@ -32,12 +32,12 @@
     align-items: center;
   }
 
-  form {
+  .formulario {
     max-width: 400px;
     margin: 0 auto;
   }
   
-  label {
+  .formulario label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
