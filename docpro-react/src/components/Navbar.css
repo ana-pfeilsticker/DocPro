@@ -3,7 +3,6 @@
     margin: 1% 2%;
     border-radius: 15px;
     min-height: 80px;
-    
     display: flex;
     justify-content: space-between;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -63,6 +62,8 @@
     justify-content: flex-end;
     display: flex;
     align-items: center;
+    gap:10px;
+    padding-right: 1%;
 }
 .comofuncionabutton{
     display: flex;
@@ -81,6 +82,12 @@
     background-color: #0d72b6;
     transition: 0.3s;
     border-radius: 8px;
+}
+
+.id{
+    font-family: 'Inter';
+    font-weight: 700;
+    color: #ffffff;
 }
 .navegacao a:hover{
     background-color: #c9c9c9b9;

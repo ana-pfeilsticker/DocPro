@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Navbar.css';
+import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
 
+    const { user } = useAuth()
     const handlebuttonClick = () => {
         window.location.href = 'http://localhost:3000/Comofunciona';
     }
@@ -30,6 +32,7 @@ const Navbar = () => {
 
                 <div className='comofuncionacontainer'>
                     <button className='comofuncionabutton' onClick={handlebuttonClick}>Como funciona</button>
+                    <div className='id'>Chave do advogado: {user.id}</div>
                 </div>
                 
             </div>
