@@ -13,7 +13,7 @@ const CardCliente = ({cliente, onClick, onDelete}) => {
             <div className="conteudo-cliente" onClick={() => onClick(cliente)}>
               <h3 className='nome-cliente'>{cliente.nome}</h3>
             </div>
-            <div className="lixeira-container" onClick={() => onDelete(cliente.id)}>
+            <div className="lixeira-card" onClick={() => onDelete(cliente.id)}>
               <FontAwesomeIcon className='lixeira' icon={faTrash} />
             </div>
           </div>
