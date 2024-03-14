@@ -1,7 +1,7 @@
 // FormularioGeracaoDocumento.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import './Preenchimento.css'
 
 function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
   const [tiposDocumentos, setTiposDocumentos] = useState([]);
@@ -116,8 +116,11 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
 
         {/* Outros campos do formulário, se necessário */}
 
-        <button type="button" onClick={handleGerarDocumento}>
+        <button className="gerar-documento"type="button" onClick={handleGerarDocumento}>
           Gerar Documento
+        </button>
+        <button className="fechar"type="button" onClick={onClose}>
+          Fechar
         </button>
       </form>
     </div>

@@ -16,7 +16,8 @@ function Comofunciona() {
             <div className="textoum">
               Criar o Layout do Documento no Word:<br/>
               Abra o Word.<br/>
-              Marque as informações que você quer que sejam preenchidas automaticamente com chaves assim: { }. Por exemplo, se você quer o nome preenchido automaticamente, escreva assim: "Olá, meu nome é {`{nome}`}".<br/>
+              Marque as informações que você quer que sejam preenchidas automaticamente com chaves assim: {`{ }`}.<br/>
+              Por exemplo, se você quer o nome preenchido automaticamente, escreva assim: "Olá, meu nome é {`{nome}`}".<br/>
               Salve o arquivo.
             </div>
           </div>
