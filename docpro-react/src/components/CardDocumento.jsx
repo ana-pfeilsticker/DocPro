@@ -15,12 +15,12 @@ const CardDocumento = ({documento, onDelete, onEdit}) => {
             </div>
 
           </div>
-          <div class="Frame7">
-          <button class="Frame4" onClick={() => onEdit(documento)}>
+          <div class="botoes">
+          <button class="botaoedit" onClick={() => onEdit(documento)}>
             <FontAwesomeIcon  className='pencil' icon={faPencil} />
             <div class="ComoFunciona">Editar</div>
           </button>
-          <button class="Frame5" onClick={() => onDelete(documento.id)}>
+          <button class="botaodelete" onClick={() => onDelete(documento.id)}>
             <FontAwesomeIcon  className='lixeira' icon={faTrash} />
             <p class="ComoFunciona">Deletar</p>
           </button>

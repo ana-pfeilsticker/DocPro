@@ -68,7 +68,7 @@
     }
   }
   
-  .Frame7 {
+  .botoes {
     padding-left: 2px;
     padding-right: 2px;
     padding-top: 12px;
@@ -80,7 +80,7 @@
     display: flex;
   }
   
-  .Frame4 {
+  .botaoedit {
     transition: .3s;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -110,11 +110,11 @@
     word-wrap: break-word;
   }
   
-  .Frame5 .ComoFunciona {
+  .botaodelete .ComoFunciona {
     color: #787878;
   }
   
-  .Frame5 {
+  .botaodelete {
     transition: .3s;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -137,21 +137,21 @@
   }
 
 
-  .Frame4:hover {
+  .botaoedit:hover {
     background: #0a436f;
     transition: .3s; /* Azul mais escuro */
   }
   
-  .Frame5:hover {
+  .botaodelete:hover {
     background: #787878; 
     transition: .3s;/* Cor da borda */
   }
   
-  .Frame5:hover p{
+  .botaodelete:hover p{
     color: white; /* Cor da borda */
   }
 
 
-  .Frame5:hover .lixeira {
+  .botaodelete:hover .lixeira {
     color: white; /* Cor do ícone alterada para branco */
   }
