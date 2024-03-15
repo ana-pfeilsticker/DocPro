@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './Navbar.css';
 import useAuth from '../hooks/useAuth';
 

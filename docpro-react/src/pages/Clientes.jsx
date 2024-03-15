@@ -90,7 +90,7 @@ function Clientes() {
       return (
   <div className="full-screen-container">
     <div className='barraetituloclientes'>  
-    <h1>Clientes</h1>
+    <h1 className='clientes1'>Clientes</h1>
 
     <div className="search-bar-clientes">
       <input

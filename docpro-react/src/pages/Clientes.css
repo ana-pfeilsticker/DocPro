@@ -13,7 +13,12 @@
 h1 {
   color: #2D8ADB;
 }
-
+.clientes1{
+  text-decoration: none;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, rgba(12,83,220,1) 0%, rgba(53,152,219,1) 70%);
+}
 
 
 .barraetituloclientes{

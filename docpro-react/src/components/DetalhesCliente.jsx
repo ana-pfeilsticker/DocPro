@@ -212,9 +212,9 @@ function DetalhesCliente({ cliente, onClose, onEditar, onGerar }) {
                 <p>UF: {cliente.uf}</p>
 
 
-                <button onClick={handleEditarClick}>Editar</button>
-                <button onClick={onClose}>Fechar</button>
-                <button onClick={onGerar}>Gerar Documento</button>
+                <button className='botao1' onClick={handleEditarClick}>Editar</button>
+                <button className='botao2' onClick={onClose}>Fechar</button>
+                <button className='botao3' onClick={onGerar}>Gerar Documento</button>
               </>
             )}
           </div>
