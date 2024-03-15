@@ -7,8 +7,8 @@ import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 const CardDocumento = ({documento, onDelete, onEdit}) => {
 
     return (
-        <div className="card-cliente">
-          <div className="card-header">
+        <div className="card-documento1">
+          <div className="card-headerdocumento">
             <div className="conteudo-doc">
               <h3 className='titulo'>{documento.nome}</h3>
               <p className='tags'>Tags: {documento.tags}</p>

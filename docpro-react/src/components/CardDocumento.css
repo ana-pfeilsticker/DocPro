@@ -1,5 +1,5 @@
-.card-cliente {
-  width: 80%;
+.card-documento1 {
+  width: 20%;
   height: auto;
   padding-left: 28px;
   padding-right: 28px;
@@ -14,20 +14,22 @@
   align-items: flex-start;
   gap: auto;
   display: flex; 
+  gap: 10px;
 
   }
   
   
-  .card-header {
+  .card-headerdocumento {
     align-self: stretch;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 12px;
     display: flex;
+    height: auto;
   }
 
-  .card-header h3{
+  .card-headerdocumento h3{
     color: #353535;
     font-size: 18px;
     font-family: Inter;
@@ -36,13 +38,14 @@
     word-wrap: break-word;
   }
 
-  .card-header p{
+  .card-headerdocumento p{
     color: #9c9c9c;
     font-size: 14px;
     font-family: Inter;
     font-weight: 300;
     letter-spacing: 0.42px;
     word-wrap: break-word;
+    height: auto;
   }
   
   .conteudo-doc {
