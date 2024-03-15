@@ -84,7 +84,13 @@
     transition: .3s;
     background-color: #0a436f;
   }
-
+  .botao-salvar{
+    transition: .3s;
+  }
+  .botao-salvar:hover{
+    transition: .3s;
+    background-color: #0a436f;
+  }
   html {
     overflow-y: scroll;
   }

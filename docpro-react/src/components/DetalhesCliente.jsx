@@ -188,7 +188,7 @@ function DetalhesCliente({ cliente, onClose, onEditar, onGerar }) {
                     onChange={(e) => setNovoDataNascimento(e.target.value)}
                 />
 
-                <button type="button" onClick={handleSalvarClick}>Salvar</button>
+                <button className='botao-salvar' type="button" onClick={handleSalvarClick}>Salvar</button>
               </form>
             ) : (
               <>
