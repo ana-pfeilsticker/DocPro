@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const { user } = useAuth()
     const handlebuttonClick = () => {
-        window.location.href = `${sistem_url}/Comofunciona`;
+        window.location.href = `https://squid-app-ewwuf.ondigitalocean.app/Comofunciona`;
     }
 
     return (

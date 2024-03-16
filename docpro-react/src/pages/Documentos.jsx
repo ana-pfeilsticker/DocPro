@@ -36,7 +36,7 @@ function Documentos() {
 
   const handleCadastroSucesso = async () => {
     try {
-      const response = await axios.get(`${api_url}/documentos/`);
+      const response = await axios.get(`https://jellyfish-app-ldfe7.ondigitalocean.app/documentos/`);
       setDados(response.data);
     } catch (error) {
       console.error('Erro ao obter dados da API', error);
@@ -48,7 +48,7 @@ function Documentos() {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${api_url}/documentos/`);
+            const response = await axios.get(`https://jellyfish-app-ldfe7.ondigitalocean.app/documentos/`);
             setDados(response.data);
         } catch (error) {
             console.error('Erro ao obter dados da API', error);
@@ -62,7 +62,7 @@ const handleExcluir = (id) => {
   
   try {
 
-      axios.delete(`${api_url}/documentos/${id}`);
+      axios.delete(`https://jellyfish-app-ldfe7.ondigitalocean.app/documentos/${id}`);
 
   } catch (error) {
       console.error('Erro ao excluir o dado', error);
@@ -83,7 +83,7 @@ const handleFecharFormDoc = () => {
 const handleEditar = async (id, novosDados) => {
   try {
     // Faz uma requisição PUT para a rota de atualização no servidor Node.js
-    await axios.put(`${api_url}/documentos/${id}`, novosDados);
+    await axios.put(`https://jellyfish-app-ldfe7.ondigitalocean.app/documentos/${id}`, novosDados);
 
     // Atualiza o estado local para refletir as mudanças no cliente editado
     const novaLista = dados.map(item =>

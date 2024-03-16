@@ -12,7 +12,7 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
   useEffect(() => {
     const fetchTiposDocumentos = async () => {
       try {
-        const response = await axios.get(`${api_url}/documentos`);
+        const response = await axios.get(`https://jellyfish-app-ldfe7.ondigitalocean.app/documentos`);
         console.log(response.data);
         setTiposDocumentos(response.data);
       } catch (error) {
@@ -68,7 +68,7 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
       formData.append('documento', documentoParaUpload);
 
       // Envie a solicitação para o servidor
-      const response = await axios.post(`${api_url}/gerarDocumento`, formData, { responseType: 'arraybuffer' });
+      const response = await axios.post(`https://jellyfish-app-ldfe7.ondigitalocean.app/gerarDocumento`, formData, { responseType: 'arraybuffer' });
 
       // Cria um Blob a partir dos dados recebidos
       const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });

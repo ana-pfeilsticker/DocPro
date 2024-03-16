@@ -18,7 +18,7 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
 
     try {
       //estabelecendo conexão com o servidor
-      await axios.post(`${api_url}/documentos`, {
+      await axios.post(`https://jellyfish-app-ldfe7.ondigitalocean.app/documentos`, {
         nome,
         tags,
       });
