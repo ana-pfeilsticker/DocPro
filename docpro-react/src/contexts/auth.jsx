@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, senha) => {
         try {
-            const userStorage = await axios.get(`${api_url}/login`);
+            const userStorage = await axios.get('https://jellyfish-app-ldfe7.ondigitalocean.app/login');
             const users = userStorage.data;
             const finduser = users.find(user => user.email === email);
 
