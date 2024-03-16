@@ -4,6 +4,7 @@ const cors = require('cors')
 const multer = require('multer')
 const path = require('path');
 const fs = require('fs').promises;
+require('dotenv').config();
 
 
 const preencherDocumento = require('./preenchimento'); 
@@ -19,12 +20,18 @@ app.use(express.json())
 
 //use npm run dev
 
+const host = process.env.HOST;
+const username = 'myuser';
+const password = process.env.PASSWORD;
+const database = process.env.DATABASE;
+const port = process.env.PORT;
+
 const sequelize = new Sequelize({ // define o login no db
     dialect: 'mysql',
-    host: '35.193.251.32',
-    username: 'myuser',
-    password: '123456',
-    database: 'dw-docpro',
+    host: host,
+    username: username,
+    password: password,
+    database: database,
 });
 
 sequelize.authenticate().then(function(){ // faz a verificação do login no db
@@ -261,6 +268,6 @@ app.put('/dados/:id', (req, res) => {
 });
 
 
-app.listen(3030, () => {
+app.listen(port, () => {
     console.log("Local Server Iniciado")
 })
