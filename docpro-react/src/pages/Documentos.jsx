@@ -17,6 +17,8 @@ function Documentos() {
     setTermoPesquisa(event.target.value);
   };
 
+  const api_url = process.env.REAC_APP_API_URL;
+
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarEditar, setMostrarEditar] = useState(false);
   const [docEdicao, setdocEdicao] = useState();
@@ -34,7 +36,7 @@ function Documentos() {
 
   const handleCadastroSucesso = async () => {
     try {
-      const response = await axios.get('http://localhost:3030/documentos');
+      const response = await axios.get(`${api_url}/documentos/`);
       setDados(response.data);
     } catch (error) {
       console.error('Erro ao obter dados da API', error);
@@ -46,7 +48,7 @@ function Documentos() {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3030/documentos/');
+            const response = await axios.get(`${api_url}/documentos/`);
             setDados(response.data);
         } catch (error) {
             console.error('Erro ao obter dados da API', error);
@@ -60,7 +62,7 @@ const handleExcluir = (id) => {
   
   try {
 
-      axios.delete(`http://localhost:3030/documentos/${id}`);
+      axios.delete(`${api_url}/documentos/${id}`);
 
   } catch (error) {
       console.error('Erro ao excluir o dado', error);
@@ -81,7 +83,7 @@ const handleFecharFormDoc = () => {
 const handleEditar = async (id, novosDados) => {
   try {
     // Faz uma requisição PUT para a rota de atualização no servidor Node.js
-    await axios.put(`http://localhost:3030/documentos/${id}`, novosDados);
+    await axios.put(`${api_url}/documentos/${id}`, novosDados);
 
     // Atualiza o estado local para refletir as mudanças no cliente editado
     const novaLista = dados.map(item =>

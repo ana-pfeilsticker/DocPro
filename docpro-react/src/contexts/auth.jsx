@@ -3,6 +3,8 @@ import axios from 'axios';
 
 export const AuthContext = createContext({})
 
+const api_url = process.env.REAC_APP_API_URL;
+
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(() => {
         const userToken = sessionStorage.getItem("user_token");
@@ -11,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, senha) => {
         try {
-            const userStorage = await axios.get("http://localhost:3030/login");
+            const userStorage = await axios.get(`${api_url}/login`);
             const users = userStorage.data;
             const finduser = users.find(user => user.email === email);
 

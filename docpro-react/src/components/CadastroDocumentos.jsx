@@ -8,7 +8,7 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
   const [nome, setNome] = useState('');  
   const [tags, setTags] = useState('');
 
-
+  const api_url = process.env.REAC_APP_API_URL;
   //essas duas linhas vão definir como vai ser o comportamento ao mudar o valor do input do formulário, ou seja, vai receber o evento e vai setar nome e tags para o valor do alvo de evento, ou seja, o valor do envio dos inputs
   const handleNomeChange = (event) => setNome(event.target.value);
   const handleTagChange = (event) => setTags(event.target.value);
@@ -18,7 +18,7 @@ const CadastroDocumento = ({ onClose, onCadastroSucesso }) => {
 
     try {
       //estabelecendo conexão com o servidor
-      await axios.post('http://localhost:3030/documentos', {
+      await axios.post(`${api_url}/documentos`, {
         nome,
         tags,
       });

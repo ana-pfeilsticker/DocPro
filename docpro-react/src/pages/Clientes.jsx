@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useAuth from '../hooks/useAuth';
 
 function Clientes() {
+
+    const api_url = process.env.REAC_APP_API_URL;
     const { user } = useAuth()
     const [dados, setDados] = useState([]);
     const [clienteSelecionado, setClienteSelecionado] = useState(null);
@@ -23,7 +25,7 @@ function Clientes() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3030/dados');
+                const response = await axios.get(`${api_url}/dados`);
                 setDados(response.data);
             } catch (error) {
                 console.error('Erro ao obter dados da API', error);
@@ -56,7 +58,7 @@ function Clientes() {
 
         setDados((dados) => dados.filter(item => item.id !== id));
         try {
-             axios.delete(`http://localhost:3030/dados/${id}`);
+             axios.delete(`${api_url}/dados/${id}`);
         } catch (error) {
             console.error('Erro ao excluir o dado', error);
         }
@@ -74,7 +76,7 @@ function Clientes() {
     const handleEditar = async (id, novosDados) => {
         try {
           // Faz uma requisição PUT para a rota de atualização no servidor Node.js
-          await axios.put(`http://localhost:3030/dados/${id}`, novosDados);
+          await axios.put(`${api_url}/dados/${id}`, novosDados);
       
           // Atualiza o estado local para refletir as mudanças no cliente editado
           const novaLista = dados.map(item =>

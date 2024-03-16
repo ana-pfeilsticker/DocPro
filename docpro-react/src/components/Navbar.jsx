@@ -4,9 +4,11 @@ import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
 
+    const sistem_url = process.env.REAC_APP_SISTEM_URL;
+
     const { user } = useAuth()
     const handlebuttonClick = () => {
-        window.location.href = 'http://localhost:3000/Comofunciona';
+        window.location.href = `${sistem_url}/Comofunciona`;
     }
 
     return (

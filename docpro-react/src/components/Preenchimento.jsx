@@ -7,11 +7,12 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
   const [tiposDocumentos, setTiposDocumentos] = useState([]);
   const [tipoDocumentoSelecionado, setTipoDocumentoSelecionado] = useState('');
   const [documentoParaUpload, setDocumentoParaUpload] = useState(null);
+  const api_url = process.env.REAC_APP_API_URL;
 
   useEffect(() => {
     const fetchTiposDocumentos = async () => {
       try {
-        const response = await axios.get('http://localhost:3030/documentos');
+        const response = await axios.get(`${api_url}/documentos`);
         console.log(response.data);
         setTiposDocumentos(response.data);
       } catch (error) {
@@ -67,7 +68,7 @@ function Preenchimento({ clienteFormulario, onClose, onGerarDocumento }) {
       formData.append('documento', documentoParaUpload);
 
       // Envie a solicitação para o servidor
-      const response = await axios.post('http://localhost:3030/gerarDocumento', formData, { responseType: 'arraybuffer' });
+      const response = await axios.post(`${api_url}/gerarDocumento`, formData, { responseType: 'arraybuffer' });
 
       // Cria um Blob a partir dos dados recebidos
       const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
